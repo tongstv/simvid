@@ -1,0 +1,458 @@
+ </div>
+            <div id="right">
+                {if isset($dienthoai) AND $dienthoai.status ==1}
+                <div class="panel panel-primary">
+                    <div class="panel-heading" id="htkh1">
+                        <h6 class="panel-title">{$dienthoai.title}</h6>
+                    </div>
+                    <div class="panel-body">
+                        {$dienthoai.detail}
+                    </div>
+                </div>
+                {/if}
+                
+                
+                   <div class="panel panel-primary hidden-xs">
+                    <div class="panel-heading" id="donhang1">
+                        <h3 class="panel-title">  ĐƠN ĐẶT HÀNG MỚI</h3>
+                    </div>
+                    <div class="panel-body" style="margin: 0; padding: 0;">
+                        <div id="order" class="wow slideInUp"></div>
+                    </div>
+                </div>
+                
+                
+                 <div class="panel panel-primary">
+                    <div class="panel-heading" id="khuyenmai2">
+                        <h2 class="panel-title"> 
+    BẠN CẦN BIẾT</h2>
+                    </div>
+                    <div class="panel-body mp0">
+                        <div class="table-responsive" style="max-height: 350px; overflow: auto;">
+                            <ul id="tintuc" class="tintuc">
+                        
+                        {section name=d loop=$bancanbiet}
+                        {$row=$bancanbiet[d]}
+                      
+                        <li>
+                       
+                        
+
+                        
+                            <a href="/p/{$row.page_url}">{$row.page_title}</a>
+                      
+                        
+                      
+                        
+                  
+                      </li>
+                      
+                        {/section}
+                        
+                        </ul>
+                        
+                        
+<style>#bancanbiet
+                        {
+                            padding: 0;
+                            list-style: none;
+                            margin: 0;
+                        }
+                        #bancanbiet a
+                        {
+                            font-size: 12px;
+                            padding-left: 3px;
+                            padding-top: 0;
+                        }
+                              #bancanbiet img
+                              {
+                                margin-top: 5px;
+                              }
+                        </style>
+
+                        </div>
+                    </div>
+                </div>
+               
+               
+               
+                
+
+     <div class="panel panel-primary">
+                    <div class="panel-heading" id="khuyenmai1">
+                        <h2 class="panel-title"> 
+    TIN TỨC SỐ ĐẸP</h2>
+                    </div>
+                    <div class="panel-body mp0">
+                        <div class="table-responsive" style="max-height: 500px; overflow: auto;">
+                            <ul id="tintuc1" class="tintuc">
+                        
+                        {section name=d loop=$tintuc}
+                        {$row=$tintuc[d]}
+                      
+                        <li>
+                      
+                        
+                    
+                        
+                            <a href="/p/{$row.page_url}">{$row.page_title}</a>
+                     
+                      
+                        
+                  
+                      </li>
+                      
+                        {/section}
+                        
+                        </ul>
+                        
+                        
+<style>.tintuc
+                        {
+                            padding: 0;
+                            list-style: none;
+                            margin: 0;
+                        }
+                        .tintuc a
+                        {
+                            font-size: 12px;
+
+                            padding-top: 0;
+                         
+                            border-bottom: 1px #ccc;
+                            color: #333;
+                        }
+                        .tintuc li
+                        {
+                            padding: 5px 10px;
+                            border-bottom: 1px solid #dddddd;
+                        }
+                              #tintuc img
+                              {
+                                margin-top: 5px;
+                              }
+                        </style>
+
+                        </div>
+                    </div>
+                </div>
+               
+
+
+
+
+  
+
+
+
+
+
+               
+                {for $i=11 to 19} {if isset($boxr{$i}.title) AND $boxr{$i}.status==1}
+
+                <div class="panel panel-primary hidden-xs" id="box{$i}">
+                    <div class="panel-heading" id="boxr{$i}">
+                        <h6 class="panel-title"> {$boxr{$i}.title}</h6>
+                    </div>
+                    <div class="panel-body">
+                        {$boxr{$i}.detail}
+                    </div>
+                </div>
+
+                {/if} {/for}
+                {for $i=20 to 30} {if isset($boxr{$i}.title) AND $boxr{$i}.status==1}
+
+                <div class="panel panel-primary visible-xs" id="box{$i}">
+                    <div class="panel-heading" id="boxr{$i}">
+                        <h6 class="panel-title"> {$boxr{$i}.title}</h6>
+                    </div>
+                    <div class="panel-body">
+                        {$boxr{$i}.detail}
+                    </div>
+                </div>
+
+                {/if} {/for}
+
+
+
+
+             
+
+               
+
+
+
+                {for $i=31 to 40} {if isset($boxr{$i}.title) AND $boxr{$i}.status==1}
+
+                <div class="panel panel-primary hidden-xs" id="box{$i}">
+                    <div class="panel-heading">
+                        <h6 class="panel-title"> {$boxr{$i}.title}</h6>
+                    </div>
+                    <div class="panel-body">
+                    <div style="max-height:  300px; overflow:  auto;">
+                        {$boxr{$i}.detail}
+                        
+                        </div>
+                    </div>
+                </div>
+
+                {/if} {/for}
+
+
+            </div>
+
+
+        </div>
+
+        <div class="row">
+
+
+            <div class="row new-footer bg-default">
+                <div id="chantrang1">
+
+                    {$newfooter}
+
+                    <div class="col-md-3 col4 font-14 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                        <h4><strong>{$connect.title}</strong></h4>
+                        <hr />
+
+
+                        <ul class="share">
+                            <li>
+                                <a href="#" class="facebook wow fadeInRight wowhover" data-effect="flip" data-wow-duration="1s" data-wow-delay=".2s " title="Chia lên trong Facebook"></a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/share?url={$share.link}" target="_blank" class="plusone wow fadeInRight" data-wow-duration="1s" data-wow-delay=".6s " title="Chia sẻ lên Google+"></a>
+                            </li>
+                            <li>
+                                <a href="https://youtube.com/share?url={$share.link}" target="_blank" class="youtube wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s " title="Chia sẻ lên Youtube"></a>
+                            </li>
+                            <li>
+                                <a href="http://twitter.com/share?text={$des}&url={$share.link}" target="_blank" class="twitter wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s " title="Chia sẻ lên Twitter"></a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="clearfix" id="chantrang123"></div>
+
+                <div>
+
+
+                </div>
+                <div id="copy1">
+
+                    {$copy.detail}
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="copy">
+            <div class="container">
+
+
+            </div>
+        </div>
+
+
+        <a class="glyphicon scrollToTop wowhover" data-effect="fadeInRight" href="javascript://" rel="nofollow"></a>
+        <a class="glyphicon scrollTobottom hidden-xs" href="javascript://" rel="nofollow"></a>
+        <script src="/js.js"></script>
+
+
+
+
+
+        <span class="designby">Version 2.0 mobile support - Thiết kế bởi: www.stv.vn</span>
+
+
+        <div class="navbar-fixed-bottom navbar-default visible-xs" style="min-height: 40px;  padding-left: 10px; padding-right: 10px;">
+            <div class="pull-left">
+                {if isset($mobilehotline)}{$mobilehotline.detail}{else}Mã Trang mobilehotline{/if}
+            </div>
+            <div class="pull-right xemtrendesktop">
+                <a href="/?desktop=1" class="pull-right"><i class="stv-display"></i><b> Xem bản Desktop</b></a>
+            </div>
+        </div>
+        {$body} {if $desktop > 0}
+        <a style="font-size: 30px; margin-bottom: 10px;" href="/?desktop=2" class="pull-left"><i class="stv-mobile"></i><b> Xem bản Mobile</b></a> {/if}
+
+
+
+        <script>
+            $(document).ready(function() {
+
+ 
+            if($(document).width() < 800)
+            {
+                
+                $("#search_box").remove();
+                
+            }
+            else
+            {
+                $("#search_box_mobi").remove();
+            }
+
+
+            $("#search").submit(function(){
+                
+            
+            var sim =$("input[name='sim']").val().replace(' ','');
+            
+            
+            if(sim)
+            {
+                   window.location ='/tim-sim/'+sim+'.html';
+            }
+            else
+            {
+                $("input[name='sim']").focus();
+            }
+         
+            
+            return false; 
+            
+                
+            });
+            
+            
+            
+                $("head").append('<link rel="stylesheet" href="{$thisdomain}/stvfont/style.css">');
+
+                $(".facebook").click(function() {
+
+                    window.open('http://www.facebook.com/sharer.php?s=100&p[url]={$share.link}&p[images][0]={$share.img}&p[title]={$share.title}&p[summary]=', 'sharer', 'toolbar=0,status=0,width=548,height=425');
+                    return false;
+
+                });
+                w = $(document).width();
+
+                if (w >= 1024) {
+
+                  $(".dropdown-toggle").click(function(){
+                    
+                    link = $(this).attr('href');
+                    
+                    
+                    window.location=link;
+                    
+                  });
+                }
+
+
+
+
+                $("button[name='submit']").click(function() {
+                    sim = $("#sim").val();
+
+
+     
+                    if (sim.length == 10 || sim.length == 11) {
+                        window.location = "/" + sim + ".html";
+                        return false;
+
+                    }
+
+                })
+
+
+            })
+        </script>
+        <div id="fb-root"></div>
+
+     
+        <div class=".c-menu__close"></div>
+
+        <script src="{$thisdomain}/script.js"></script>
+
+        {if isset($banner_trai)}
+        <div class="slide_left">{$banner_trai.detail}</div>
+        <div class="slide_right">{$banner_phai.detail}</div>
+
+        <style>
+        
+        
+            a:link
+            {
+                color: #333;
+            }
+            
+            a:hover
+            {
+                color: #C50404;
+            }
+            #phannhom a
+            {
+                color: #333;
+            }
+             #phannhom a:hover
+            {
+                 color: #C50404;
+                 text-decoration: none;
+            }
+                
+            #navmenuLeft,
+            #navmenuRight {
+                background: white;
+                position: fixed;
+                width: 0px;
+                top: 0;
+                padding: 0;
+                margin: 0;
+            }
+            #navmenuLeft {
+                left: 0;
+            }
+            #navmenuLeft li {
+                background: white;
+            }
+            #navmenuRight li {
+                background: white;
+                right: 0;
+            }
+            .slide_left,
+            .slide_right {
+                display: none;
+            }
+            @media (min-width: 1025px) {
+                .slide_left,
+                .slide_right {
+                    display: block;
+                    border: 1px solid #ccc;
+                    box-shadow: 2px 2px 3px #ccc;
+                    position: fixed;
+                    top: 38px;
+                    width: 150px;
+                    min-height: 600px;
+                    z-index: -1;
+                }
+                .slide_left {
+                    left: 0;
+                    margin-left: 10px;
+                }
+                .slide_right {
+                    right: 0px;
+                    float: right;
+                    margin-right: 10px;
+                }
+            }
+        </style>
+
+
+
+
+        {/if}
+</div>
+        <div id="c-mask" class="c-mask"></div>
+        
+        
+
+</body>
+
+</html>

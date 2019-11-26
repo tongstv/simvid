@@ -1,0 +1,49 @@
+{include file='box/search_none_xs1.htm'}
+<div style="background-color: white;">
+<div style="padding: 15px; max-height: 350px; overflow: auto;">{$header}</div>
+  
+<table class="table table-borderedtable-condensed">
+
+<thead>
+<tr>
+
+<th class="active center hidden-xs">STT</th>
+<th class="active">
+
+Sim số
+
+</th>
+<th class="active sortprice">Giá tiền <span class="glyphicon"> <a class="pricetoogle" href="javascript://">
+{if !isset($smarty.session.toggleprice)}
+<span class="glyphicon-arrow-up"></span><span class="glyphicon-arrow-down"></span>
+{else if $smarty.session.toggleprice=='ASC'}
+<span class="glyphicon-arrow-up red"></span>
+{else}
+<span class="glyphicon-arrow-down red"></span>
+{/if}
+
+</a>
+
+
+</span></th>
+<th class="hidden active text-center">Tổng</th>
+<th class="active text-center">Mạng di dộng</th>
+
+<th class="active text-center">Đặt mua</th>
+<th class="hidden active text-center text-center">Giỏ hàng</th>
+
+</tr>
+</thead>
+
+{include file='table_body.htm'}
+
+<tfoot>
+<tr>
+<td colspan="8" class="text-right"><ul class="pagination pagination-sm">{$paging}</ul></td>
+</tr>
+</tfoot>
+</table>
+
+
+<div style="padding: 15px; max-height: 350px; overflow: auto;">{$footer}</div>
+</div>

@@ -1,0 +1,53 @@
+{if isset($gia)}
+<form method="POST" class="form-inline" id="loc">
+<strong>Lọc danh sách:</strong>
+{if !isset($smarty.get.price)}
+{html_options name=loctheogia options=$gia selected=$giaselect Class="locgia from-control"}
+{/if}
+
+{if !isset($smarty.get.network)}
+{html_options name=loctheomang options=$mang selected=$mangselect class="locmang from-control"}
+{/if}
+
+
+
+
+</form>
+{/if}
+
+
+{literal}
+<script>
+
+window.onload=function()
+{
+      
+  $(".locgia, .locmang").change(function(){
+       $("#loc").submit(); 
+    });
+    
+    
+    if($(document).width() < 1024)
+ {
+    $("a.hotkey").click(function(){
+       
+       var text=$(this).text();
+       
+        $("#minisearch").val(text);
+    });
+    
+   $("#fr2").hover(function(){
+    $("#fullsearch").show('slow');
+    $("#vd1").hide();
+    
+   },function()
+   {
+     $("#fullsearch").hide('slow');
+       $("#vd1").show();
+   }
+   )
+ }
+};
+
+</script>
+{/literal}

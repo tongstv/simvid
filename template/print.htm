@@ -1,0 +1,67 @@
+
+<table>
+<tr>
+<td colspan="2">{$header.print_header.detail}</td>
+</tr>
+<tr>
+<td><table>
+<thead>
+    <tr>
+    
+  <th><center>STT</center></th>
+    <th>Số sim</th>
+    <th>Giá tiền</th>
+    </tr>
+
+</thead>
+
+
+{section name=d loop=50}
+{$row=$data[d]}
+{if $row.sim1}
+<tr>
+<td><center>{$row.stt}</center></td>
+<td><strong>{$row.sim1}</strong></td>
+<td>{($row.giaban*1000000)|number_format}</td>
+
+</tr>
+{/if}
+{/section}
+</table></td>
+{if $data[50]}
+<td style="width: 200px;"></td>
+<td><table>
+<thead>
+    <tr>
+    
+    <th><center>STT</center></th>
+    <th>Số sim</th>
+    <th>Giá tiền</th>
+
+    </tr>
+
+</thead>
+
+
+{section name=d start=50 loop=100}
+{$row=$data[d]}
+{if $row.sim1}
+<tr>
+<td><center>{$row.stt}</center></td>
+<td><strong>{$row.sim1}</strong></td>
+<td>{($row.giaban*1000000)|number_format}</td>
+
+</tr>
+{/if}
+{/section}
+</table></td>
+</tr>
+<tr>
+<td colspan="2">{$footer.print_footer.detail}</td>
+</tr>
+</table>
+{/if}
+<script>window.print();</script>
+
+
+

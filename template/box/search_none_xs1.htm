@@ -1,0 +1,47 @@
+
+<div class="panel panel-default hidden-xs" id="search_box">
+
+               
+  <div class="panel-body">
+   <form id="search" action="index.php" class="form-horizontal" style="margin: 0; padding: 0;">
+<input name="do" value="search" type="hidden">
+
+
+
+
+<div class="form-group" id="timkiemgiua1">
+
+<div class="input-group">
+   
+<input name="sim" id="sim1" value="{if isset($thiskey)}{$thiskey}{/if}" class="form-control input-lg pull-left popover-dismiss" placeholder="Nhập số sim bạn cần tìm" data-container="body" data-toggle="popover" data-placement="bottom" data-content=" - Sử dụng dấu <span class='red'>x</span> đại điện cho 1 số và dấu <span class='red'>*</span> đại điện cho một chuỗi số. <br /> + Để tìm sim bắt đầu bằng 098, quý khách nhập vào 098*<br /> + Để tìm sim kết thúc bằng 888, quý khách nhập vào *888<br /> + Để tìm sim bắt đầu bằng 098 và kết thúc bằng 888, nhập vào 098*888<br /> + Để tìm sim bên trong có số 888, nhập vào 888<br /> + Để tìm sim bắt đầu bằng 098 và kết thúc bằng 808, 818, 828, 838, 848, 858, 868, 878, 888, 898 nhập vào 098*8x8<br />+ Sử dụng đấu <span class='red'>|</span> đại điện cho hoặc vd: tìm đầu 091 hoặc 092 gõ 09(1|2)*" title="" data-original-title="Hướng dẫn tìm kiếm sim">
+<span class="input-group-btn">
+<button class="btn btn-lg btn-danger">
+
+<strong>Tìm Kiếm</strong></button></span></div></div>
+
+
+<ul style=" padding-left: 15px; ">
+<li>Tìm sim có số <strong>6789</strong> bạn hãy gõ <strong>6789</strong></li>
+<li>Tìm sim có đầu <strong>090 </strong>đuôi <strong>8888</strong> hãy gõ <strong>090<font size="2">*</font>8888</strong></li>
+<li>Tìm sim bắt đầu bằng <strong>0914</strong> đuôi bất kỳ, hãy gõ:&nbsp;<strong>0914<font size="2">*</font></strong></li>
+</ul>
+
+ <input type="hidden" name="submit" value="true">
+ </form>
+ </div>
+</div>
+
+{if $nav}
+
+<div class="panel panel-default hidden-xs">
+
+
+ <ul id="navigation" style="margin: 0 auto;">
+{$nav}
+</ul>
+
+
+</div>
+
+<div class="clearfix"></div>
+{/if}

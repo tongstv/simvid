@@ -1,0 +1,71 @@
+<div class="container">
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h2 class="panel-title">Thay đổi thông tin cá nhân</h2>
+  </div>
+  <div class="panel-body">
+  
+  <form method="POST" class="form-horizontal ajax-form" action="index.php?ajax={$smarty.get.do}" autocomplete="off">
+    
+    <input name="submit" value="{$email}" type="hidden" />
+     <div class="form-group form-group-sm">
+    <label class="control-label col-md-4">Email/ Tên đăng nhập:</label>
+    <div class="col-md-6">
+    {$email}
+    
+    </div>
+    </div>
+    <div class="form-group form-group-sm">
+    <label class="control-label col-md-4">Họ và tên:</label>
+    <div class="col-md-6">
+    <input name="fullname" value="{$fullname}" class="form-control" />
+    </div>
+    </div>
+    
+    <div class="form-group form-group-sm">
+    <label class="control-label col-md-4">Địa chỉ:</label>
+    <div class="col-md-6">
+    <input name="address" value="{$address}" class="form-control" />
+    </div>
+    </div>
+    
+    
+    <div class="form-group form-group-sm">
+    <label class="control-label col-md-4">Điện thoại:</label>
+    <div class="col-md-6">
+    <input name="phone" value="{$phone}" class="form-control" />
+    </div>
+    </div>
+    
+    <div class="form-group form-group-sm">
+    <label class="control-label col-md-4">Gới tính:</label>
+    <div class="col-md-6">
+   <select name="gender" class="form-control">
+
+     {html_options values=$option_name output=$option_name selected=$gender}
+   </select>
+    </div>
+    </div>
+    
+    
+    <div class="form-group form-group-sm">
+    <label class="control-label col-md-4">Mật khẩu:</label>
+    <div class="col-md-6">
+    <input name="password" type="password" class="form-control" />
+    </div>
+    </div>
+    
+ 
+    <div class="form-group form-group-sm">
+ 
+    <div class="col-md-12">
+<button class="btn btn-success center-block">Thay đổi thông tin</button>
+    </div>
+    </div>
+    </form>
+    
+    
+  </div>
+</div>
+</div>

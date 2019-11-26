@@ -1,0 +1,53 @@
+{include file=$theme.search}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 class="panel-title">SIM SỐ ĐẸP MỚI CẬP NHẬT </h1>
+  </div>
+
+  
+<table class="table table-bordered table-condensed">
+
+<thead>
+<tr>
+
+<th class="active center">STT</th>
+<th class="active">
+
+Số sim
+
+</th>
+<th class="active sortprice">Giá tiền <span class="glyphicon"> <a class="pricetoogle" href="javascript://">
+{if !isset($smarty.session.toggleprice)}
+<span class="glyphicon-arrow-up"></span><span class="glyphicon glyphicon-arrow-down"></span>
+{else if $smarty.session.toggleprice=='ASC'}
+<span class="glyphicon glyphicon-arrow-up red"></span>
+{else}
+<span class="glyphicon glyphicon-arrow-down red"></span>
+{/if}
+
+</a>
+
+
+</span></th>
+<th class="active hidden text-center">Tổng</th>
+<th class="active">Mạng di dộng</th>
+<!-- <th class="hidden">Phong Thủy +/-</th> -->
+<th class="active text-center">Đặt mua</th>
+
+
+</tr>
+</thead>
+
+
+{include file='table_body.htm'}
+
+
+<tfoot>
+<tr>
+<td colspan="6" class="text-right"><ul class="pagination pagination-sm">{$paging}</ul></td>
+</tr>
+</tfoot>
+</table>
+
+
+</div>

@@ -1,0 +1,66 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title">{$title}</h2>
+  </div>
+  <div class="panel-body">
+   
+   
+   SIM: <strong style="color: red; font-size: 20px;">{$sosim}</strong>
+   <br />
+   Quý khách gọi vào chính số sim <strong>{$sosim}</strong>
+    <br />. Nếu thấy: 
+• ĐỔ CHUÔNG -> Số Đã bán
+   <br />
+• HIỆN KHÔNG LIÊN LẠC ĐƯỢC -> 80% đã bán
+   <br />
+• MỌI TÍN HIỆU KHÁC -> Số vẫn còn trong kho
+  </div>
+</div>
+
+
+
+<div id="simlienquan"></div>
+
+<style>
+#lienquan
+{
+    padding: 0;
+    margin: 0;
+}
+
+#lienquan li
+
+{
+    width: 50%;
+    float: left;
+    list-style: none;
+    border: 1px solid #cccccc;
+    padding: 5px;
+    border-bottom: 0px;
+}
+#lienquan li .sim
+{
+  font-size: 16px;
+  margin-left: 15px;
+
+}
+.form-group-sm
+{
+  display: none;
+}
+
+</style>
+
+<script type="text/javascript">
+  
+window.onload=function(){
+  var load="";
+load += "<div id=\"fountainTextG\"><div id=\"fountainTextG_1\" class=\"fountainTextG\">L<\/div><div id=\"fountainTextG_2\" class=\"fountainTextG\">o<\/div><div id=\"fountainTextG_3\" class=\"fountainTextG\">a<\/div><div id=\"fountainTextG_4\" class=\"fountainTextG\">d<\/div><div id=\"fountainTextG_5\" class=\"fountainTextG\">i<\/div><div id=\"fountainTextG_6\" class=\"fountainTextG\">n<\/div><div id=\"fountainTextG_7\" class=\"fountainTextG\">g<\/div><\/div>";
+
+$("#simlienquan").html(load);
+ $.get('/index.php?ajax=ordered.loadmore&sosim={$smarty.get.sosim}').done(function(html){
+
+                                  $("#simlienquan").html(html);
+                                 });  
+};
+</script>

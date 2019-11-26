@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi, en">
+   <head>
+      <title>Kiểm tra đơn hàng</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body>
+	<link href="{$thisdomain}/{$template}/css/css.php" rel="stylesheet" media="screen">
+          <!--[if lt IE 8]>
+          <link rel="stylesheet" href="https://cache.stv.vn/stvfont/ie7/ie7.css">
+          <![endif]-->
+      <link rel="stylesheet" href="https://cache.stv.vn/stvfont/style.css">
+        {if isset($smarty.session.style)}
+          <link rel="stylesheet/less" type="text/css" href="{$thisdomain}/{$template}/css/style/{$smarty.session.style}/bootswatch.less">
+   
+        {else}
+          <link rel="stylesheet/less" type="text/css" href="{$thisdomain}/{$template}/css/bootswatch.less">
+ <link rel="stylesheet/less" type="text/css" href="{$thisdomain}/{$template}/css/custom.less">
+    
+        {/if}
+  	<link href="{$thisdomain}/{$template}/css/menu.min.css" rel="stylesheet" media="screen">
+<script src="{$thisdomain}/{$template}/js/js.php" type="text/javascript"></script>
+<script src="{$thisdomain}/{$template}/js/social-likes.min.js" type="text/javascript"></script>
+
+
+      {if isset($smarty.request.dlid)}
+      <input type="hidden" name="dlid" value="{$smarty.request.dlid}" />
+      {/if}
+     
+      {if isset($error)}
+      <div class="alert alert-danger">{$error}</div>
+      {/if}
+      {if isset($alert)}
+      <div class="alert alert-success">{$alert}</div>
+      {/if}
+   
+
+
+
+      <form action="index.php?ajax={$smarty.get.ajax}" method="POST" class="form-horizontal">
+ 
+
+    <div class="col-sm-12">
+<label class="control-label col-sm-3">Số sim đặt mua:</label>
+
+
+<div class="col-sm-4"><input name="simcard" class="form-control" /></div>
+<div class="col-sm-3"><button class="btn btn-success">Check</button></div>
+
+    </div>
+   
+
+   
+      </form>
+    
+{if isset($simcard) AND $simcard!=''}
+    <br />
+    <table class="table table-hover table-condensed">
+    
+    <thead>
+    <tr>
+    <th class="active" colspan="2">Thông tin vận đơn</th>
+    </tr>
+    </thead>
+    <tr>
+    
+        <td><strong>Số sim:</strong></td>
+        <td>{$simcard}</td>
+    </tr>
+    <tr>
+        <td><strong>Ngày chuyển:</strong></td>
+        <td>{$date_send|date_format: 'd/m/Y'}</td>
+    </tr>
+    {if $name}
+    <tr>
+        <td><strong>Họ tên khách hàng:</strong></td>
+        <td>{$name}</td>
+    </tr>
+    {/if}
+    </table>
+    
+    </table>
+{/if}
+    </body>
+    </html>

@@ -1,0 +1,60 @@
+<tbody id="tbody">
+<tr>
+<td colspan="6">
+<div id="loc1" style="float: right;">{include file='loc.htm'}</div>
+</td>
+
+</tr>
+
+
+
+{section name=d loop=$data}
+{$row=$data[d]}
+
+<tr>
+
+<td>{$row.stt}</td>
+
+<td><a href="/{$row.sim2}.html"><strong class="font-16 sim">{$row.sim1}</strong></a></td>
+
+<td class="font-13">{($row.giaban*1000000)|number_format}</td>
+
+<td class="hidden"><span class="badge">{$row.tong}</span></td>
+
+<td><span class="network n{$row.mang}"></span></td>
+
+<td><a href="/{$row.sim2}.html" class="btn btn-xs btn-primary">Đặt mua</a></td>
+
+
+</tr>
+
+{/section}
+</tbody>
+<style>
+@media(max-width:600px)
+{
+
+tbody#tbody > tr > td:nth-child(1)
+{
+    text-align: center;
+}
+
+
+tbody#tbody > tr > td:nth-child(3)
+{
+    text-align: center;
+}
+
+
+tbody#tbody > tr > td:nth-child(4)
+{
+    text-align: center;
+}
+
+
+tbody#tbody > tr > td:nth-child(4)
+{
+    text-align: center;
+}
+}
+</style>

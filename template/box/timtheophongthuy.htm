@@ -1,0 +1,18 @@
+  <form method="GET" action="index.php">
+  <input name="do" value="search" type="hidden" />
+				<div class="form-group">
+					<label>Tổng nút</label>
+					<input name="tongnut" class="form-control input-sm" placeholder="Tổng nút 1-10" type="text">
+				</div>
+				<div class="form-group">
+					<label>Tổng điểm</label>
+					<input name="tongdiem" class="form-control input-sm" placeholder="Tổng điểm < 81" type="text">
+				</div>
+				<div class="row form-group" style="font-size: 11px; font-weight: normal;">
+					<div class="col-xs-12 text-center">
+						<label><input name="type" checked="checked" value="0" type="radio"> Tất cả</label> 	<label><input name="type" value="09" type="radio"> 10 Số</label> <label><input name="type" value="01" type="radio"> 11 Số</label> 
+					</div>
+					<div class="col-xs-12 text-center margin-top"><input class="btn btn-default btn-sm" value="Tìm sim" type="submit"></div>
+				</div>
+                <input type="hidden" name="submit" value="true" />
+			</form>

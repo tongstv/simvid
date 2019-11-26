@@ -1,0 +1,147 @@
+<nav class="navbar-default " role="navigation">
+    
+
+    <div class="navbar-header">
+ 
+<form class="navbar-form-control visible-xs search" role="search" action="index.php" autocomplete="off"  id="mini-search">
+
+         
+    <input type="hidden" name="do" value="search" />
+          <div class="input-group" id="tkmb1">
+              <input type="text" value="111" id="tkmb2" class="form-control" placeholder="Nhập số bạn cần tìm" name="sim">
+              <br />
+            
+            <div class="input-group-btn" id="tkmb3">
+                <button class="btn btn-primary" id="tkmb4"type="submit" name="submit"><strong>Tìm Kiếm</strong></button>
+                </div>
+                
+          </div>
+    <div class="vd1">
+                  <strong>Hotkey:</strong> <span class="hotkey"><a href="09*6868" class="hotkey">09*6868</a>, <a href="090*888" class="hotkey">090*888</a>, <a href="0913*" class="hotkey">0913*</a>, <a href="*999" class="hotkey">*999</a></span>
+                  </div>
+
+    </div>
+
+
+<div id="fullsearch" style="display:none;">
+
+   <input name="do" value="search" type="hidden">
+  
+      <input type="hidden" name="submit" value="true" />
+    <div class="form-group">
+
+   <div class="col-md-4 col-xs-12 col-lg-4">
+
+   <select name="network" class="form-control strong">
+   <option value="0">Chọn mạng di động</option>
+    <option value="1">Viettel</option>
+     <option value="2">Mobifone</option>
+      <option value="3">Vinaphone</option>
+       <option value="4">Vietnamobile</option>
+       <option value="5">Gmobile</option>
+   </select>
+   </div>
+   <div class="col-md-4 col-xs-6 col-lg-4 ">
+   
+   <div class="input-group">
+   <div class="input-group-addon font-12"> Giá từ:</div>
+  
+   
+   <input name="giatu" class="form-control price" placeholder="100,000" />
+   </div>
+   </div>
+   <div class="col-md-4 col-xs-6 col-lg-4">
+      
+   <div class="input-group">
+   <div class="input-group-addon font-12">Đến:</div>
+  
+   
+   <input name="den" class="form-control price" placeholder="1,000,000" />
+   </div>
+
+   </div>
+ 
+ 
+ </div>
+  
+    
+
+
+
+   
+ 
+   
+
+   <div class="form-group text-center">
+
+<strong class="state-danger font-12">Ví dụ:</strong> &nbsp;<a rel="nofollow" href="*888" class="hotkey">*888</a> <a rel="nofollow" href="0912*68" class="hotkey">0912*68</a>, <a rel="nofollow" href="090*888" class="hotkey">090*888</a>, <a rel="nofollow" href="0913*" class="hotkey">0913*</a>, <a rel="nofollow" href="*6688" class="hotkey">*6688</a>
+
+   
+   </div>
+   <div class="form-group text-center">
+Sim 10 số <input type="radio" value="0" name="type" />
+                 &nbsp; &nbsp;
+             Sim 11 số <input type="radio" value="1" name="type" />
+</div>
+ 
+   
+   <div class="form-group text-center">
+   
+   Dãy số không gồm:
+				<input name="n[]" value="1" type="checkbox"><span> 1 </span>
+				<input name="n[]" value="2" type="checkbox"><span> 2 </span>
+				<input name="n[]" value="3" type="checkbox"><span> 3 </span>
+				<input name="n[]" value="4" type="checkbox"><span> 4 </span>
+			<input name="n[]" value="5" type="checkbox"><span> 5 </span>
+				<input name="n[]" value="6" type="checkbox"><span> 6 </span>
+				<input name="n[]" value="7" type="checkbox"><span> 7 </span>
+				<input name="n[]" value="8" type="checkbox"><span> 8 </span>
+				<input name="n[]" value="9" type="checkbox"><span> 9 </span>
+   </div>
+   
+   
+   <div class="form-group text-center">
+    <div class="col-md-4 col-xs-6 col-md-offset-2">
+                <div class="input-group">
+                <div class="input-group-addon font-12">Tổng điểm:</div>
+                <input name="tongdiem" maxlength="2" class="form-control mp0 " placeholder=" < 81" />
+                </div>
+                </div>
+                
+                
+                
+          <div class="col-md-4 col-xs-6">
+                
+                      <div class="input-group">
+                <div class="input-group-addon font-12">Tổng Nút:</div>
+                <input name="tongnut" maxlength="2" class="form-control mp0 " placeholder=" 1 -10" />
+                </div>
+                </div>        
+                
+   </div>
+
+
+</div>
+ </form>
+<div class="clearfix"></div>
+{literal}
+<script>
+ window.onload = function () { 
+    if(screen.width < 768)
+    {
+ 
+    $("#mini-search").hover(function(){
+        
+        
+        $("#fullsearch").show('show');
+        $(".vd1").hide();
+    })
+    }
+    
+}
+</script>
+{/literal}
+    
+</nav>
+
+   

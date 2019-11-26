@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>
+    {strip}
+        {if isset($title)}{$title}{/if}
+        {/strip}
+    </title>
+    {if $desktop > 0}
+
+    <meta name="viewport" content="width=1024">
+    <style>
+        width: 970px !important;
+    </style>
+    {else}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> {/if}
+    <meta http-equiv="Cache-control" content="public, max-age=86400">
+    <meta name="description" content="{if isset($des)}{$des}{/if}">
+    <meta name="keywords" content="{if isset($keyword)} {$keyword} {/if}">
+    <meta name="author" content="{$thisdomain|replace:'http://':''}">
+    <meta name="robots" content="index, follow">
+<link rel="alternate" href="{$thisdomain}{$smarty.server.REQUEST_URI|regex_replace:'/\?page=([0-9]*)/':''}" hreflang="vi-vn"/>
+    <meta name="revisit" content="1 days" />
+    <meta name="language" content="vi-VN" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+
+
+    <link rel="shortcut icon" href="/data/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/data/favicon.ico" type="image/x-icon">
+
+    <meta property="og:locale" content="vi_VN">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{if isset($title)}{$title}{/if}">
+    <meta property="og:description" content="{if isset($des)}{$des}{/if}">
+    <meta property="og:site_name" content="{$thisdomain|replace:'http://':''}">
+ 
+
+    <base href="{$thisdomain}">
+
+    <!--[if lt IE 8]>
+       <meta property="og:image" content="{$thisdomain}/data/fb.jpg">
+          <link rel="stylesheet" href="https://cache.stv.vn/stvfont/ie7/ie7.css">
+          <![endif]-->
+ {$header}
+
+<style>
+.table > tbody > tr > td:nth-child(6), .table > thead > tr > th:nth-child(6) {
+    display: block !important;
+
+</style>
+    <link href="{$thisdomain}/{$template}/css/css.css" rel="stylesheet" media="all">
+
+</head>
+
+<body style="margin: 0;" id="o-wrapper">
+
+
+    <div class="container-fluid">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid hidden" style="padding: 0;">
+
+        <div id="menu-on-top">
+            <div class="container">
+                <div class="pull-left"> {if isset($date)}<i class="glyphicon glyphicon-calendar"></i> Hôm nay: {$date}{/if}</div>
+               	<div class="cart wow fadeInLeft" >
+				<a href="javascript://" class="addcart hidden-xs">
+				<i class="glyphicon glyphicon-shopping-cart font-12 hidden-xs"></i> Giỏ hàng <span class="hidden-xs badge" id="cart">{if isset($cartcount)}{$cartcount}{/if}</span>
+				</a>
+
+			</div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="container">
+    
+
+        <div class="row" id="rowbd1">
+        <div class="banner hidden-xs" style="vertical-align:top;">
+
+        {if isset($banner)}{$banner.detail}{/if}
+
+
+    </div>
+
+
+
+
+<div id="menuleft" class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="menuRight">
+                 {$top_menu} 
+            </ul>
+           
+        </div>
+         <div class="visible-xs" id="mtop">
+             
+               <a href="#" id="showLeftPush" class="ShowLeft glyphicon glyphicon-list pull-left" style="color: white; font-size: 32px; margin-top: 0px;"></a>
+        
+<div class="visible-xs" id="mbtop1">
+             <a href="/" id="tc123"> Trang chủ</a>
+        <a href="/p/thanh-toan" id="tt123">Thanh toán</a>
+        <a href="/p/lien-he" id="lh123">Liên hệ</a>
+        </div>
+        
+        <a href="#" id="showRightPush" class="ShowRight glyphicon glyphicon-list pull-right" style="color: white; font-size: 32px; margin-top: 0px;"></a>
+  
+      
+             
+            </div>
+            
+            
+        <style>
+        #mtop
+        {
+            line-height: 40px;
+        }
+        #mtop a
+        {
+             float: left;
+            
+             padding: 10px 10px;
+             color: white;
+        }
+        @media (max-width: 320px)
+        {
+          #mtop a
+        {
+             float: left;
+             color: #F8972E;
+            
+             padding: 5px 5px;
+             font-size: 14px;
+        }
+        }
+        </style> 
+        
+    </div>
+</div>
+{include file='menu.htm'}
+            <div class="clearfix"></div>
+
+           
+           
+
+
+            <div id="left">
+              <div class="panel panel-primary hidden-xs" id="leftmenu">
+                  <div class="panel-heading hidden-xs">
+                    <h2 class="panel-title"> TÌM SIM THEO MẠNG</h2>
+                  </div>
+                  <div class="panel-body">
+                   <ul class="nav navbar-nav navbar-left cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="menuLeft">
+                	{$menu}
+            </ul>
+            </div>
+                
+                 
+                 
+                </div>
+
+
+
+
+
+                {for $x=0 to 10} {if isset($boxl{$x}.title) AND $boxl{$x}.status ==1}
+
+                <div class="panel panel-primary hidden-xs" >
+                    <div class="panel-heading" id="boxl{$x}">
+                        <h6 class="panel-title">{$boxl{$x}.title}</h6>
+                    </div>
+                    <div class="panel-body">
+                        {$boxl{$x}.detail}
+                    </div>
+                </div>
+
+                {/if} {/for}
+              
+
+
+
+
+
+            </div>
+            <div class="" id="main">

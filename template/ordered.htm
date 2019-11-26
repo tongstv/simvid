@@ -1,0 +1,407 @@
+
+{if isset($data)}
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title">{$title}</h2>
+  </div>
+  <div class="panel-body">
+      <form class="form-horizontal" method="post" id="ordered" action="index.php?do=ordered.done" onsubmit="return checkorder()">
+   <table class="table table-hover table-condensed table-bordered" >
+   <thead>
+   <tr>
+    <th class="active text-center col-md-1">STT</th>
+     <th class="active text-center">Số sim</th>
+      <th class="active">Giá tiền</th>
+      
+      <th class="active"></th>
+  
+   </tr>
+   </thead>
+   
+   {section name=d loop=$data}
+   {$row=$data[d]}
+   <tr>
+   
+   <td class="center">
+   
+   <input type="hidden" name="simdlx[{$row.sim1}]" value="{$row.simdl}" />
+   <input type="hidden" name="sim[{$row.sim1}]" value="{($row.giaban*1000000)}" />
+   {$smarty.section.d.index+1}</td>
+   <td class="text-center"><strong style="color: red; font-size: 18px;">{$row.sim1}</strong> <br />
+   
+   {($row.giaban*1000000)|number_format} VNĐ 
+   <br />
+   ({$row.doctien})
+   </td>
+   <td>
+
+
+
+   <div style="width: 200px;;">
+   <img class="center-block img-responsive" alt="Sim {$row.sim1}" src="/index.php/img?sim={$row.sim1}&gia= {($row.giaban*1000000)}&hotline=0963.991.991&domain=www.simvidan.vn&size3=16&left3=250" />
+   </div>
+   
+
+   </td>
+
+   <td class="text-center"><a href="javascript://" class="delcart" data-sim="{$row.sim2}"> <i class="glyphicon glyphicon-trash text-danger"></i></a></td>
+ 
+   </tr>
+   {/section}
+   {if isset($mycart) }
+    <tr>
+    <td colspan="4" class="active">
+    {if isset($tt)}
+    <h5 class="pull-right">
+    Tổng tiền: <span id="total">{($tt*1000000)|number_format}</span> VNĐ
+    </h5>
+    {/if}
+    </td>
+    </tr>
+    {/if}
+   </table>
+   
+
+   <div class="row">
+   <div class="col-md-8">
+
+   
+   <div class="form-group  ">
+   <label class="control-label col-md-4">Họ và tên: <span class="red">(*)</span></label>
+   <div class="col-md-7">
+   <input name="fullname" class="form-control" />
+   </div>
+   </div>
+   
+      <div class="form-group ">
+   <label class="control-label col-md-4">Điện thoại: <span class="red">(*)</span></label>
+   <div class="col-md-7">
+   <input name="phone" class="form-control" />
+   </div>
+   </div>
+   
+    
+   
+         <div class="form-group ">
+   <label class="control-label col-md-4">Địa chỉ: <span class="red">(*)</span></label>
+   
+   <div class="col-md-7">
+
+    <textarea name="address" class="form-control"></textarea>
+   </div>
+   </div>
+     <div class="form-group">
+   <label class="control-label col-md-4">Tỉnh/TP: <span class="red">(*)</span></label>
+   <div class="col-md-7">
+  <input type="hidden" name="city" />
+   <input type="hidden" name="qh" />
+   <input type="hidden" name="px" />
+   <select id="city" class="form-control city">
+   <option value="0">Chọn Tỉnh/TP</option>
+   {html_options options=$city}
+   </select>
+   </div>
+   </div>
+   
+   
+
+   
+      <div class="form-group ">
+   <label class="control-label col-md-4">Ghi chú:</label>
+   <div class="col-md-7">
+   <textarea class="form-control" name="note" style="height: 50px;"></textarea>
+  
+   </div>
+   </div>
+   
+  
+
+   </form>
+   </div>
+   <div class="col-md-4 hidden-xs">{if isset($goimua.detail)}
+{$goimua.detail}
+{/if}</div>
+    
+   <div class="form-group ">
+   <div class="col-md-12">
+        <div class="text-center">
+        
+           <button name="submit" class="btn btn-primary ">Đặt mua</button>  <button type="reset" class="btn btn-default">Làm lại</button>
+    </div>
+   </div>
+   </div>
+   
+   
+  
+   
+    </div>   
+
+  </div>
+</div>
+
+<div class="panel ">
+ 
+  <div class="panel-body">
+   {if isset($datmua.detail)}
+{$datmua.detail}
+{/if}
+  </div>
+</div>
+
+<div id="simlienquan"></div>
+
+<style>
+
+#mini-search{
+    display: none !important;
+}
+
+#lienquan
+{
+    padding: 0;
+    margin: 0;
+}
+
+#lienquan li
+
+{
+    width: 50%;
+    float: left;
+    list-style: none;
+    border: 1px solid #cccccc;
+    padding: 5px;
+    border-bottom: 0px;
+}
+#lienquan li .sim
+{
+  font-size: 16px;
+  margin-left: 15px;
+
+}
+.form-group-sm
+{
+  display: none;
+}
+#fountainTextG{
+  width:234px;
+  margin:auto;
+}
+
+.fountainTextG{
+  color:rgb(0,0,0);
+  font-family:Arial;
+  font-size:24px;
+  text-decoration:none;
+  font-weight:normal;
+  font-style:normal;
+  float:left;
+  animation-name:bounce_fountainTextG;
+    -o-animation-name:bounce_fountainTextG;
+    -ms-animation-name:bounce_fountainTextG;
+    -webkit-animation-name:bounce_fountainTextG;
+    -moz-animation-name:bounce_fountainTextG;
+  animation-duration:2.09s;
+    -o-animation-duration:2.09s;
+    -ms-animation-duration:2.09s;
+    -webkit-animation-duration:2.09s;
+    -moz-animation-duration:2.09s;
+  animation-iteration-count:infinite;
+    -o-animation-iteration-count:infinite;
+    -ms-animation-iteration-count:infinite;
+    -webkit-animation-iteration-count:infinite;
+    -moz-animation-iteration-count:infinite;
+  animation-direction:normal;
+    -o-animation-direction:normal;
+    -ms-animation-direction:normal;
+    -webkit-animation-direction:normal;
+    -moz-animation-direction:normal;
+  transform:scale(.5);
+    -o-transform:scale(.5);
+    -ms-transform:scale(.5);
+    -webkit-transform:scale(.5);
+    -moz-transform:scale(.5);
+}#fountainTextG_1{
+  animation-delay:0.75s;
+    -o-animation-delay:0.75s;
+    -ms-animation-delay:0.75s;
+    -webkit-animation-delay:0.75s;
+    -moz-animation-delay:0.75s;
+}
+#fountainTextG_2{
+  animation-delay:0.9s;
+    -o-animation-delay:0.9s;
+    -ms-animation-delay:0.9s;
+    -webkit-animation-delay:0.9s;
+    -moz-animation-delay:0.9s;
+}
+#fountainTextG_3{
+  animation-delay:1.05s;
+    -o-animation-delay:1.05s;
+    -ms-animation-delay:1.05s;
+    -webkit-animation-delay:1.05s;
+    -moz-animation-delay:1.05s;
+}
+#fountainTextG_4{
+  animation-delay:1.2s;
+    -o-animation-delay:1.2s;
+    -ms-animation-delay:1.2s;
+    -webkit-animation-delay:1.2s;
+    -moz-animation-delay:1.2s;
+}
+#fountainTextG_5{
+  animation-delay:1.35s;
+    -o-animation-delay:1.35s;
+    -ms-animation-delay:1.35s;
+    -webkit-animation-delay:1.35s;
+    -moz-animation-delay:1.35s;
+}
+#fountainTextG_6{
+  animation-delay:1.5s;
+    -o-animation-delay:1.5s;
+    -ms-animation-delay:1.5s;
+    -webkit-animation-delay:1.5s;
+    -moz-animation-delay:1.5s;
+}
+#fountainTextG_7{
+  animation-delay:1.64s;
+    -o-animation-delay:1.64s;
+    -ms-animation-delay:1.64s;
+    -webkit-animation-delay:1.64s;
+    -moz-animation-delay:1.64s;
+}
+
+
+
+
+@keyframes bounce_fountainTextG{
+  0%{
+    transform:scale(1);
+    color:rgb(0,0,0);
+  }
+
+  100%{
+    transform:scale(.5);
+    color:rgb(255,255,255);
+  }
+}
+
+@-o-keyframes bounce_fountainTextG{
+  0%{
+    -o-transform:scale(1);
+    color:rgb(0,0,0);
+  }
+
+  100%{
+    -o-transform:scale(.5);
+    color:rgb(255,255,255);
+  }
+}
+
+@-ms-keyframes bounce_fountainTextG{
+  0%{
+    -ms-transform:scale(1);
+    color:rgb(0,0,0);
+  }
+
+  100%{
+    -ms-transform:scale(.5);
+    color:rgb(255,255,255);
+  }
+}
+
+@-webkit-keyframes bounce_fountainTextG{
+  0%{
+    -webkit-transform:scale(1);
+    color:rgb(0,0,0);
+  }
+
+  100%{
+    -webkit-transform:scale(.5);
+    color:rgb(255,255,255);
+  }
+}
+
+@-moz-keyframes bounce_fountainTextG{
+  0%{
+    -moz-transform:scale(1);
+    color:rgb(0,0,0);
+  }
+
+  100%{
+    -moz-transform:scale(.5);
+    color:rgb(255,255,255);
+  }
+}
+</style>
+
+        <script>
+        window.onload =function(){
+ $.getScript( "/apps/js/chosen.js" )
+  .done(function( script, textStatus ) {
+    
+  $(".city").chosen({ search_contains: true, width: "100%" });
+
+    
+  });
+
+  $("#city").change(function(){
+
+
+                            index=$(this).find('option:selected').val();
+                            $(".district").remove();
+                            $(".se1").remove();
+                            $.get('{$thisdomain}/index.php?ajax=city.getdistrict&id='+index).done(function(data){
+                           
+                              $("#city").parents('.form-group').after(data);
+                             
+                            });
+                            
+                            city=$("#city").find('option:selected').text();
+                            $("input[name='city']").val(city);
+                            
+                        });
+                        $(document).on('change','.district',function(){
+                             index=$(this).find('option:selected').val();
+                            $(".se2").remove();
+                            $.get('{$thisdomain}/index.php?ajax=city.getward&id='+index).done(function(data){
+                           
+                              $(".district").parents('.form-group').after(data);
+                            
+                    
+                            });
+                            qh=$(".se1").find('option:selected').text();
+                            $("input[name='qh']").val(qh);
+                        });
+                      
+                      
+                      
+                      
+                                 $(document).on('change','.ward',function(){
+                           
+                            px=$(".se2").find('option:selected').text();
+                            $("input[name='px']").val(px);
+                        });
+                        
+                         var load="";
+load += "<div id=\"fountainTextG\"><div id=\"fountainTextG_1\" class=\"fountainTextG\">L<\/div><div id=\"fountainTextG_2\" class=\"fountainTextG\">o<\/div><div id=\"fountainTextG_3\" class=\"fountainTextG\">a<\/div><div id=\"fountainTextG_4\" class=\"fountainTextG\">d<\/div><div id=\"fountainTextG_5\" class=\"fountainTextG\">i<\/div><div id=\"fountainTextG_6\" class=\"fountainTextG\">n<\/div><div id=\"fountainTextG_7\" class=\"fountainTextG\">g<\/div><\/div>";
+
+$("#simlienquan").html(load);
+                       
+                                 $.get('/index.php?ajax=ordered.loadmore&sosim={$smarty.get.sosim}').done(function(html){
+
+                                  $("#simlienquan").html(html);
+                                 });
+
+        };
+
+
+               </script>
+
+
+               {else}
+               
+               
+               {include file='nosim.htm'}
+               {/if}
+               <link rel="stylesheet" href="{$thisdomain}/apps/css/chosen.css">

@@ -1,0 +1,38 @@
+<style>
+#search_box{
+    display: none !important;
+}
+</style>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">{if isset($page_title)}{$page_title}{/if}</h2>
+  </div>
+  <div class="panel-body">
+  <div class="table-condensed">
+   {if isset($page_detail)} {$page_detail} {/if}
+   </div>
+  </div>
+</div>
+
+{if isset($more)}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Tin liên quan</h2>
+  </div>
+  <div class="panel-body">
+   <ul>
+ 
+    {section name=d loop=$more}
+    {$row=$more[d]}
+   <li>
+    <a href="/p/{$row.page_url}">{$row.page_title}</a>
+    </li>
+    {/section} 
+   
+ 
+    
+  
+    </ul>
+  </div>
+</div>
+{/if}
